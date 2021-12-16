@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.modal__background {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+.modal-wrapper {
+    display: grid;
+    z-index: 1;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 32px;
+    width: 619px;
+    height: 425px;
+    grid-template-columns: max-content auto;
+}
+
+.modal-content-wrapper {
+    text-align: center;
+    align-items: center;
+    width: 331px;
+    height: 205px;
+    margin-bottom: 29px;
+}
+
+.modal-content__img {
+    width: 100%;
+    height: auto;
+}
+
+.modal-content-from {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content {
+    max-width: max-content;
+}
+
+.modal-content-form__input {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    color: black;
+    padding-left: 11px;
+    height: 30px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin-bottom: 29px;
+}
+
+.modal-comments {
+    margin-left: 33px;
+}
+
+.modal-comments-item__date {
+    margin-bottom: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    color: #999999;
+}
+
+.modal-comments-item__content {
+    margin: 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    color: #000000;
+}
+
+.modal-content-form__btn {
+    width: 332px;
+    height: 30px;
+    text-align: center;
+    background: #4997D0;
+    border-radius: 3px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+}

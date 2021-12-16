@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { Fragment, useEffect, useState } from 'react';
+import Header from './components/header';
+import './styles/index.css';
+import GalleryList from './components/gallery/GalleryList'
+import { IImages } from './types'
+import axios from 'axios';
+
+
+const App = () => {
+
+  const [images, setImages] = useState<IImages[]>([])
+ 
+
+
+  useEffect(() => {
+    fetchImages()
+  }, [])
+
+  async function fetchImages() {
+    try {
+      const { data } = await axios.get<IImages[]>('https://boiling-refuge-66454.herokuapp.com/images')
+      setImages(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Header />
+      <GalleryList images={images} />
+    </Fragment>
   );
-}
+};
 
 export default App;
