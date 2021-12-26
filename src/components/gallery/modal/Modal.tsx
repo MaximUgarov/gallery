@@ -30,12 +30,12 @@ const Modal: FC<IModalProps> = ({ hide }: IModalProps) => {
         <div className="modal-wrapper">
             <div className="modal-content">
                 <div className="modal-content-wrapper">
-                    {!loading ? <img src={content?.url} alt="" className="modal-content__img" /> : <p>Загрузка</p>}
+                    {!loading ? <img src={content.url} alt="" className="modal-content__img" /> : <p>Загрузка</p>}
                 </div>
                 <Form onSumbit={async (data) => { return onSumbit(data, content_id) }} />
             </div>
             <div className="modal-comments">
-                {!loading ? content?.comments.length ? content.comments.map(i => <div className="modal-comments-wrapper" key={i.id}>
+                {!loading ? content.comments.length ? content.comments.map(i => <div className="modal-comments-wrapper" key={i.id}>
                     <p className="modal-comments-item__date">{getDateByUnix(new Date(i.date))}</p>
                     <p className="modal-comments-item__content">{i.text}</p>
                 </div>) : <p className="modal-comments-item__content">Комментарии отстствуют</p> : <p>Загрузка</p>}

@@ -4,7 +4,7 @@ import { ModalState, ModalActionTypes, ModalAction } from '../../types/modal'
 const initialState: ModalState = {
     modal: false,
     content_id: 0,
-    content: null,
+    content: { id: 0, url: "", comments: [] },
     loading: false,
     error: null,
 }

@@ -1,7 +1,7 @@
 import axios from "axios"
 import { Dispatch } from "redux"
 import { ModalAction, ModalActionTypes } from "../../types/modal"
-import { ImodalContent } from "../../types/photo"
+import { ImodalContent } from "../../types/image"
 
 export const ToggleModal = (content_id: number, modal: boolean) => {
     return (dispatch: Dispatch<ModalAction>) => {

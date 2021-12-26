@@ -1,9 +1,9 @@
-import { ImodalContent } from './photo';
+import { ImodalContent } from './image';
 
 export interface ModalState {
     modal: boolean,
     content_id: 0 | number
-    content: ImodalContent | null,
+    content: ImodalContent ,
     loading: boolean,
     error: null | string
 }

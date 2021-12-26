@@ -1,5 +1,5 @@
 
-import { ImageState, ImagesActionTypes, ImageAction } from '../../types/photo'
+import { ImageState, ImagesActionTypes, ImageAction } from '../../types/image'
 
 const initialState: ImageState = {
     images: [],

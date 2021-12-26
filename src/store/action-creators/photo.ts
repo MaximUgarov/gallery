@@ -1,6 +1,6 @@
 import axios from "axios"
 import { Dispatch } from "redux"
-import { ImageAction, ImagesActionTypes } from "../../types/photo"
+import { ImageAction, ImagesActionTypes } from "../../types/image"
 
 export const fetchPhotos = () => {
     return async (dispatch: Dispatch<ImageAction>) => {
