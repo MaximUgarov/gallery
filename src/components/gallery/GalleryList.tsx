@@ -1,8 +1,9 @@
-import React, { FC, Fragment, useState } from 'react';
+import React, { FC, Fragment } from 'react';
 import GalleryItem from './GalleryItem';
 import { IImages } from '../../types'
 import Modal from './modal/Modal';
-import { useModal } from '../../hooks/useModal';
+import { useActions } from '../../hooks/useAction';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 interface GalleryListProps {
     images: IImages[],
@@ -10,20 +11,22 @@ interface GalleryListProps {
 
 
 const GalleryList: FC<GalleryListProps> = ({ images }: GalleryListProps) => {
-    const { isShown, toggle } = useModal()
-    const [content_id, setContent_id] = useState<number>()
+    const { modal } = useTypeSelector(state => state.modal)
+    const { ToggleModal } = useActions()
+
+
 
     const openModal = (id: number) => {
-        setContent_id(id)
-        toggle()
+        ToggleModal(id, modal)
     }
+
 
     return (
         <Fragment>
             <div className="gallery-wrapper">
                 {images.map(item => <GalleryItem key={item.id} id={item.id} url={item.url} onClick={(id) => { openModal(id) }} />)}
             </div>
-            {content_id ? <Modal isShown={isShown} hide={toggle} content_id={content_id} /> : null}
+            <Modal hide={() => ToggleModal(0, modal)} />
         </Fragment>
     );
 };

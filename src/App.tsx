@@ -3,30 +3,29 @@ import { Fragment, useEffect, useState } from 'react';
 import Header from './components/header';
 import './styles/index.css';
 import GalleryList from './components/gallery/GalleryList'
-import { IImages } from './types'
-import axios from 'axios';
+import { useTypeSelector } from './hooks/useTypeSelector';
+import { useActions } from './hooks/useAction';
 
 
 const App = () => {
 
-  const [images, setImages] = useState<IImages[]>([])
- 
 
+  const { images, loading, error } = useTypeSelector(state => state.photos)
+  const { fetchPhotos } = useActions()
 
   useEffect(() => {
-    fetchImages()
+    fetchPhotos()
+    console.log(images, loading, error)
   }, [])
 
-  async function fetchImages() {
-    try {
-      const { data } = await axios.get<IImages[]>('https://boiling-refuge-66454.herokuapp.com/images')
-      setImages(data)
-    } catch (error) {
-      console.log(error)
-    }
+
+  if (error) {
+    return <h1>{error}</h1>
   }
 
-
+  if (loading) {
+    return <h1>Loading Images</h1>
+  }
 
   return (
     <Fragment>
